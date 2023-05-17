@@ -25,16 +25,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let profileViewController = ProfileViewController()
         let navFirst = UINavigationController(rootViewController: feedViewController)
         let navSecond = UINavigationController(rootViewController: profileViewController)
-        
+       
         
         
         let itemFirst = UITabBarItem(title: "Feed", image: UIImage(systemName: "house"), selectedImage: nil)
-        let itemSecond = UITabBarItem(title: "Profile", image: UIImage(systemName: "folder"), selectedImage: nil)
+        let itemSecond = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), selectedImage: nil)
         navFirst.tabBarItem = itemFirst
         navSecond.tabBarItem = itemSecond
         
         
-        tapBar.tabBar.backgroundColor = .black
+        tapBar.tabBar.backgroundColor = .white
         tapBar.viewControllers = [navFirst, navSecond]
         
         window?.rootViewController = tapBar

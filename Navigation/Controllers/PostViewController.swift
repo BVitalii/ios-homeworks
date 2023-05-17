@@ -14,8 +14,8 @@ class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .systemGray
+        
+        view.backgroundColor = .white
         setupBarButtonItem()
         
     }
@@ -32,5 +32,6 @@ class PostViewController: UIViewController {
     func setupBarButtonItem() {
             let baritem = UIBarButtonItem(image: UIImage(systemName: "folder"), style: .plain, target: self, action: #selector(onButtonTap))
             self.navigationItem.rightBarButtonItem = baritem
+        
         }
 }
