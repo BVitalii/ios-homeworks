@@ -82,14 +82,16 @@ class ProfileHeaderView: UIView {
     
     func setConsraintLabelName(){
         labelName.translatesAutoresizingMaskIntoConstraints = false
-        labelName.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        labelName.leadingAnchor.constraint(equalTo: avatar.trailingAnchor, constant: 16).isActive = true
+//        labelName.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         labelName.topAnchor.constraint(equalTo: topAnchor, constant: 27) .isActive = true
         labelName.heightAnchor.constraint(equalToConstant: 44).isActive = true
     }
     
     func setConsraintLabelStatus(){
         labelStatus.translatesAutoresizingMaskIntoConstraints = false
-        labelStatus.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        labelStatus.leadingAnchor.constraint(equalTo: avatar.trailingAnchor, constant: 16).isActive = true
+//        labelStatus.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         labelStatus.heightAnchor.constraint(equalToConstant: 30).isActive = true
         labelStatus.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -34).isActive = true
         
