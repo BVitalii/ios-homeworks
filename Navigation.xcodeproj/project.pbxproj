@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA2BB5F32A056C05009486A5 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BB5F22A056C05009486A5 /* ProfileHeaderView.swift */; };
 		FA41195E29EDBA600015238D /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41195D29EDBA600015238D /* FeedViewController.swift */; };
 		FA41196029EDBA720015238D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41195F29EDBA720015238D /* ProfileViewController.swift */; };
 		FA41196229EDBA960015238D /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41196129EDBA960015238D /* PostViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA2BB5F22A056C05009486A5 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		FA41195D29EDBA600015238D /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		FA41195F29EDBA720015238D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FA41196129EDBA960015238D /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -43,12 +45,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA2BB5EC2A03C17C009486A5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FA2BB5F22A056C05009486A5 /* ProfileHeaderView.swift */,
+				FA41195F29EDBA720015238D /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		FA41196329EDBDD30015238D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				FA41195D29EDBA600015238D /* FeedViewController.swift */,
 				FA41196129EDBA960015238D /* PostViewController.swift */,
-				FA41195F29EDBA720015238D /* ProfileViewController.swift */,
 				FA41196829EDC00A0015238D /* InfoViewController.swift */,
 			);
 			path = Controllers;
@@ -90,6 +100,7 @@
 		FAB91D7829E960700056848F /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				FA2BB5EC2A03C17C009486A5 /* Profile */,
 				FA41196529EDBE7D0015238D /* Models */,
 				FA41196429EDBE050015238D /* Application */,
 				FA41196329EDBDD30015238D /* Controllers */,
@@ -174,6 +185,7 @@
 				FAB91D7A29E960700056848F /* AppDelegate.swift in Sources */,
 				FA41196029EDBA720015238D /* ProfileViewController.swift in Sources */,
 				FA41195E29EDBA600015238D /* FeedViewController.swift in Sources */,
+				FA2BB5F32A056C05009486A5 /* ProfileHeaderView.swift in Sources */,
 				FA41196729EDBE970015238D /* Post.swift in Sources */,
 				FA41196929EDC00A0015238D /* InfoViewController.swift in Sources */,
 				FAB91D7C29E960700056848F /* SceneDelegate.swift in Sources */,
