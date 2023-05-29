@@ -16,6 +16,7 @@ class ProfileHeaderView: UIView {
         avatarImageView.layer.borderWidth = 3
         avatarImageView.layer.borderColor = CGColor(red: 1 , green: 1, blue: 1, alpha: 1)
         avatarImageView.image = UIImage(named: "hous")
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         return avatarImageView
     }()
     
@@ -24,6 +25,7 @@ class ProfileHeaderView: UIView {
         fullNameLabel.text = "Милый Дом"
         fullNameLabel.textColor = .black
         fullNameLabel.font = UIFont(name: "HelveticaNeue-bold", size: 18)
+        fullNameLabel.translatesAutoresizingMaskIntoConstraints = false
         return fullNameLabel
     }()
     
@@ -32,6 +34,7 @@ class ProfileHeaderView: UIView {
         statusLabel.text = "Скучаю по хозяевам"
         statusLabel.font = UIFont(name:"HelveticaNeue", size: 14)
         statusLabel.textColor = .gray
+        statusLabel.translatesAutoresizingMaskIntoConstraints = false
         return statusLabel
     }()
     
@@ -48,9 +51,10 @@ class ProfileHeaderView: UIView {
         setStatusButton.layer.shouldRasterize = true
         setStatusButton.layer.shadowOpacity = 0.5
         setStatusButton.addTarget(self, action: #selector(statusButtonPressed), for: .touchUpInside)
+        setStatusButton.translatesAutoresizingMaskIntoConstraints = false
         return setStatusButton
     }()
-
+    
     
     override init(frame: CGRect) {
         super .init(frame: frame)
@@ -59,6 +63,7 @@ class ProfileHeaderView: UIView {
         addSubview(statusLabel)
         addSubview(fullNameLabel)
         addSubview(setStatusButton)
+        setConstreint()
     }
     
     required init?(coder: NSCoder) {
@@ -67,46 +72,32 @@ class ProfileHeaderView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setConstraintAvatarImageView()
-        setConsraintFullNameLabel()
-        setConsraintStatusLabel()
-        setConstraintSetStatusButton()
-       
     }
     
-    func setConstraintAvatarImageView(){
-        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
-        avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16) .isActive = true
-        avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        avatarImageView.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        avatarImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+    func setConstreint(){
+        NSLayoutConstraint.activate([
+            avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 120),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 120),
+            
+            fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            fullNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 27),
+            fullNameLabel.heightAnchor.constraint(equalToConstant: 44),
+            
+            statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            statusLabel.heightAnchor.constraint(equalToConstant: 30),
+            statusLabel.bottomAnchor.constraint(equalTo: setStatusButton.topAnchor, constant: -34),
+            
+            setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
+            setStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            setStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            setStatusButton.heightAnchor.constraint(equalToConstant: 50)])
     }
-    
-    func setConsraintFullNameLabel(){
-        fullNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16).isActive = true
-        fullNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 27) .isActive = true
-        fullNameLabel.heightAnchor.constraint(equalToConstant: 44).isActive = true
-    }
-    
-    func setConsraintStatusLabel(){
-        statusLabel.translatesAutoresizingMaskIntoConstraints = false
-        statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16).isActive = true
-        statusLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        statusLabel.bottomAnchor.constraint(equalTo: setStatusButton.topAnchor, constant: -34).isActive = true
-        
-    }
-    
-    func setConstraintSetStatusButton(){
-        setStatusButton.translatesAutoresizingMaskIntoConstraints = false
-        setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16).isActive = true
-        setStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        setStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-        setStatusButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    }
-    
     @objc func statusButtonPressed(){
-        print(statusLabel.text as Any? ?? "Статус не установлен")
+        print(statusLabel.text!)
+        
+        
     }
     
 }
