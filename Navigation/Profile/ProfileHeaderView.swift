@@ -9,55 +9,61 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
-    var avatar: UIImageView = {
-        var avatarImage = UIImageView()
-        avatarImage.layer.cornerRadius = 60
-        avatarImage.layer.masksToBounds = true
-        avatarImage.layer.borderWidth = 3
-        avatarImage.layer.borderColor = CGColor(red: 1 , green: 1, blue: 1, alpha: 1)
-        avatarImage.image = UIImage(named: "hous")
-        return avatarImage
+    var avatarImageView: UIImageView = {
+        var avatarImageView = UIImageView()
+        avatarImageView.layer.cornerRadius = 60
+        avatarImageView.layer.masksToBounds = true
+        avatarImageView.layer.borderWidth = 3
+        avatarImageView.layer.borderColor = CGColor(red: 1 , green: 1, blue: 1, alpha: 1)
+        avatarImageView.image = UIImage(named: "hous")
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        return avatarImageView
     }()
     
-    var labelName: UILabel = {
-        var labelName = UILabel()
-        labelName.text = "Милый Дом"
-        labelName.textColor = .black
-        labelName.font = UIFont(name: "HelveticaNeue-bold", size: 18)
-        return labelName
+    var fullNameLabel: UILabel = {
+        var fullNameLabel = UILabel()
+        fullNameLabel.text = "Милый Дом"
+        fullNameLabel.textColor = .black
+        fullNameLabel.font = UIFont(name: "HelveticaNeue-bold", size: 18)
+        fullNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        return fullNameLabel
     }()
     
-    var labelStatus: UILabel = {
-        var labelStatus = UILabel()
-        labelStatus.text = "Скучаю по хозяевам"
-        labelStatus.font = UIFont(name:"HelveticaNeue", size: 14)
-        labelStatus.textColor = .gray
-        return labelStatus
+    var statusLabel: UILabel = {
+        var statusLabel = UILabel()
+        statusLabel.text = "Скучаю по хозяевам"
+        statusLabel.font = UIFont(name:"HelveticaNeue", size: 14)
+        statusLabel.textColor = .gray
+        statusLabel.translatesAutoresizingMaskIntoConstraints = false
+        return statusLabel
     }()
     
-    var statusButton: UIButton = {
-        var statusButton = UIButton()
-        statusButton.backgroundColor = .systemBlue
-        statusButton.setTitle("Установить статус", for: .normal)
-        statusButton.setTitleColor(.white, for: .normal)
-        statusButton.layer.shadowOffset.width = 4
-        statusButton.layer.shadowOffset.height = 4
-        statusButton.layer.cornerRadius = 4
-        statusButton.layer.shadowColor = UIColor.black.cgColor
-        statusButton.layer.masksToBounds = false
-        statusButton.layer.shouldRasterize = true
-        statusButton.layer.shadowOpacity = 0.5
-        statusButton.addTarget(self, action: #selector(statusButtonPressed), for: .touchUpInside)
-        return statusButton
+    var setStatusButton: UIButton = {
+        var setStatusButton = UIButton()
+        setStatusButton.backgroundColor = .systemBlue
+        setStatusButton.setTitle("Установить статус", for: .normal)
+        setStatusButton.setTitleColor(.white, for: .normal)
+        setStatusButton.layer.shadowOffset.width = 4
+        setStatusButton.layer.shadowOffset.height = 4
+        setStatusButton.layer.cornerRadius = 4
+        setStatusButton.layer.shadowColor = UIColor.black.cgColor
+        setStatusButton.layer.masksToBounds = false
+        setStatusButton.layer.shouldRasterize = true
+        setStatusButton.layer.shadowOpacity = 0.5
+        setStatusButton.addTarget(self, action: #selector(statusButtonPressed), for: .touchUpInside)
+        setStatusButton.translatesAutoresizingMaskIntoConstraints = false
+        return setStatusButton
     }()
+    
     
     override init(frame: CGRect) {
         super .init(frame: frame)
         
-        addSubview(avatar)
-        addSubview(labelStatus)
-        addSubview(labelName)
-        addSubview(statusButton)
+        addSubview(avatarImageView)
+        addSubview(statusLabel)
+        addSubview(fullNameLabel)
+        addSubview(setStatusButton)
+        setConstreint()
     }
     
     required init?(coder: NSCoder) {
@@ -66,47 +72,32 @@ class ProfileHeaderView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setConstraintAvatar()
-        setConsraintLabelName()
-        setConsraintLabelStatus()
-        setConstraintStatusButton()
     }
     
-    func setConstraintAvatar(){
-        avatar.translatesAutoresizingMaskIntoConstraints = false
-        avatar.topAnchor.constraint(equalTo: topAnchor, constant: 16) .isActive = true
-        avatar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        avatar.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        avatar.heightAnchor.constraint(equalToConstant: 120).isActive = true
+    func setConstreint(){
+        NSLayoutConstraint.activate([
+            avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 120),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 120),
+            
+            fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            fullNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 27),
+            fullNameLabel.heightAnchor.constraint(equalToConstant: 44),
+            
+            statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            statusLabel.heightAnchor.constraint(equalToConstant: 30),
+            statusLabel.bottomAnchor.constraint(equalTo: setStatusButton.topAnchor, constant: -34),
+            
+            setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
+            setStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            setStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            setStatusButton.heightAnchor.constraint(equalToConstant: 50)])
     }
-    
-    func setConsraintLabelName(){
-        labelName.translatesAutoresizingMaskIntoConstraints = false
-        labelName.leadingAnchor.constraint(equalTo: avatar.trailingAnchor, constant: 16).isActive = true
-//        labelName.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        labelName.topAnchor.constraint(equalTo: topAnchor, constant: 27) .isActive = true
-        labelName.heightAnchor.constraint(equalToConstant: 44).isActive = true
-    }
-    
-    func setConsraintLabelStatus(){
-        labelStatus.translatesAutoresizingMaskIntoConstraints = false
-        labelStatus.leadingAnchor.constraint(equalTo: avatar.trailingAnchor, constant: 16).isActive = true
-//        labelStatus.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        labelStatus.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        labelStatus.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -34).isActive = true
-        
-    }
-    
-    func setConstraintStatusButton(){
-        statusButton.translatesAutoresizingMaskIntoConstraints = false
-        statusButton.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 16).isActive = true
-        statusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        statusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-        statusButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    }
-    
     @objc func statusButtonPressed(){
-        print(labelStatus.text as Any? ?? "Статус не установлен")
+        print(statusLabel.text!)
+        
+        
     }
     
 }
