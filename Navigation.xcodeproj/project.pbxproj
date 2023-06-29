@@ -17,6 +17,7 @@
 		FAB91D7C29E960700056848F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB91D7B29E960700056848F /* SceneDelegate.swift */; };
 		FAB91D8329E960740056848F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB91D8229E960740056848F /* Assets.xcassets */; };
 		FAB91D8629E960740056848F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB91D8429E960740056848F /* LaunchScreen.storyboard */; };
+		FACF00782A39A5DF00660905 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACF00772A39A5DF00660905 /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		FAB91D8229E960740056848F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAB91D8529E960740056848F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAB91D8729E960740056848F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FACF00772A39A5DF00660905 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 			children = (
 				FA2BB5F22A056C05009486A5 /* ProfileHeaderView.swift */,
 				FA41195F29EDBA720015238D /* ProfileViewController.swift */,
+				FACF00772A39A5DF00660905 /* LogInViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			files = (
 				FA41196229EDBA960015238D /* PostViewController.swift in Sources */,
 				FAB91D7A29E960700056848F /* AppDelegate.swift in Sources */,
+				FACF00782A39A5DF00660905 /* LogInViewController.swift in Sources */,
 				FA41196029EDBA720015238D /* ProfileViewController.swift in Sources */,
 				FA41195E29EDBA600015238D /* FeedViewController.swift in Sources */,
 				FA2BB5F32A056C05009486A5 /* ProfileHeaderView.swift in Sources */,

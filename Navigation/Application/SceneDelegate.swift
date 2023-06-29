@@ -22,9 +22,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tapBar = UITabBarController()
         
         let feedViewController = FeedViewController()
-        let profileViewController = ProfileViewController()
+        //let profileViewController = ProfileViewController()
+        let loginViewController = LogInViewController()
         let navFirst = UINavigationController(rootViewController: feedViewController)
-        let navSecond = UINavigationController(rootViewController: profileViewController)
+        //let navSecond = UINavigationController(rootViewController: profileViewController)
+        let navSecond = UINavigationController(rootViewController: loginViewController)
        
         
         
